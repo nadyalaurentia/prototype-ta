@@ -4,6 +4,7 @@ import './index.css';
 import App from './containers/pages/App';
 import reportWebVitals from './reportWebVitals';
 import firebaseApp from './config/firebase';
+import './assets/fonts/NotoSans-Regular.ttf'
 
 console.log('config fb ==', firebaseApp);
 

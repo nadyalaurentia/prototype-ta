@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "Noto Sans";
+  src: local("NotoSans-Regular"), url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Sans Bold";
+  src: local("NotoSans-Bold"), url("./assets/fonts/NotoSans-Bold.ttf") format("truetype");
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
