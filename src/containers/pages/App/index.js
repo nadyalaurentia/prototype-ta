@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 
 import Register from '../Register';
 import Case1 from '../Case1';
+import Reading1 from '../Reading1';
 // function App() {
 //   return (
 //     <div className="App">
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" Component={Register} />
           <Route path="/case1" Component={Case1} />
+          <Route path="/case1-reading" Component={Reading1} />
         </Routes>
       </div>
     </Router>
