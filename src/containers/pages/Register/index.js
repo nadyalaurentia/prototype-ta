@@ -19,7 +19,7 @@ class Register extends Component {
                     </div>
                     <p className='input-title'>Nama <div className='mandatory'>*</div></p>
                     <input className='input' type='text'/>
-                    <Link to='/case1'><button className='btn'>Mulai</button></Link>
+                    <Link to='/case/1'><button className='btn'>Mulai</button></Link>
                 </div>
             </div>
         )

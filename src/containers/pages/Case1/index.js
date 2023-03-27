@@ -10,7 +10,7 @@ class Case1 extends Component {
                 <div className='content-container'>
                     <p className='reg-title'>Sesi 1</p>
                     <p className='reg-text'>Klik tombol ‘Mulai’ jika sudah siap untuk memulai sesi</p>
-                    <Link to='/case1-reading'><button className='wel-btn'>Mulai</button></Link>
+                    <Link to='/case/1/reading'><button className='wel-btn'>Mulai</button></Link>
                 </div>
             </div>
         )
