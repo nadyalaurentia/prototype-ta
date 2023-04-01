@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './reading.scss'
+import './reading.scss';
 import PropTypes from 'prop-types';
 
 const Questions = ({question, option}) => {
     return(
         <div>
-            <p className='read-text'>{question}</p>
+        <p className='read-text'>{question}</p>
             <form>
                 {option.map((option) => (
                     <div key={option}>
