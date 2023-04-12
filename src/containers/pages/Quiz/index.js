@@ -3,36 +3,38 @@ import { Link } from 'react-router-dom';
 import '../../reusable/reading.scss';
 import PropTypes from 'prop-types';
 import Questions from '../../reusable/question';
-import { db } from '../../../config/firebase'
-import { doc, getDoc } from 'firebase/firestore';
+import jsonData from '../../../assets/soal.json';
 
 const Quiz = (session) => {
     const i = [1, 2, 3, 4, 5, 6];
 
-    const[questions, setQuestions] = useState([]);
-  
-    useEffect(() => {
-      const getQuestions = async () => {
-        const questDoc = doc(db, "questions", session.toString());
-        const questSnap = await getDoc(questDoc);
-  
-        if (questSnap.exists()) {
-          setQuestions(questSnap.data());
-        } else {
-          console.log("No such doc");
-        }
-      };
-  
-      getQuestions();
-    }, [session]);
+    const [data, setData] = useState(null);
 
-    const listQuestion = i.map((i) => {
-        const qnum = 'q' + i.toString();
-        const cnum = 'c' + i.toString();
-        const qtemp = questions[qnum];
-        const ctemp = questions[cnum];
-        return <Questions question={i + '. ' + qtemp} option={ctemp} />;
+    useEffect(() => {
+        setData(jsonData);
+    }, []);
+
+
+    if (data === null) {
+        return <div>Loading...</div>;
+    }
+
+    const listQuestion = data[session.toString()]["listsoal"].map((nomorsoal, index) => {
+        const choices = [];
+        nomorsoal["pilihan"].map((option) => {
+            choices.push(option["teks"]);
+        });
+        return <Questions key={index} question={nomorsoal["soal"]} option={choices}/>;
     });
+    
+    
+    // const listQuestion = data[session.toString()]["listsoal"].map((nomorsoal) => {
+    //     const choices = [];
+    //     nomorsoal.map((option) => {
+    //         choices.push(option["teks"]);
+    //     })
+    //     return <Questions question={nomorsoal["soal"]} option={choices}/>;
+    // });
 
     let contrast = 'read-container';
     if (session > 4) {

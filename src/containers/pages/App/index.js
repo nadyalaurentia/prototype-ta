@@ -6,7 +6,6 @@ import Preparation from '../../reusable/preparation';
 import Reading from '../../reusable/reading';
 import Quiz from '../Quiz';
 import Final from '../Final';
-// import Coba from '../be/coba';
 
 
 function App() {
@@ -25,7 +24,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={Register()} />
+        {/* <Route path="/" element={Register()} /> */}
+        <Route path="/" Component={Register} />
         <Route path="/final" Component={Final} />
       </Routes>
       {routePages}

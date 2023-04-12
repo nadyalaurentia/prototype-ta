@@ -3,7 +3,7 @@ import './reading.scss';
 import PropTypes from 'prop-types';
 
 const Questions = ({question, option}) => {
-    return(
+  return(
         <div>
         <p className='read-text'>{question}</p>
             <form>
@@ -22,7 +22,7 @@ const Questions = ({question, option}) => {
 
 Questions.propTypes = {
     question: PropTypes.string.isRequired,
-    option: PropTypes.arrayOf(PropTypes.string).isRequired,    
+    option: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default Questions;
