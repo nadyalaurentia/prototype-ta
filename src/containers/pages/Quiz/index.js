@@ -7,8 +7,13 @@ import jsonData from '../../../assets/soal.json';
 
 const Quiz = (session) => {
     const i = [1, 2, 3, 4, 5, 6];
+    let contrast = 'read-container';
+    if (session > 4) {
+        contrast = contrast + ' dark';
+    }
 
     const [data, setData] = useState(null);
+    const [answers, setAnswers] = useState({});
 
     useEffect(() => {
         setData(jsonData);
@@ -19,26 +24,32 @@ const Quiz = (session) => {
         return <div>Loading...</div>;
     }
 
+    const handleAnswerChange = (questionIndex, newAnswer) => {
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
+            [questionIndex]: newAnswer
+        }));
+    };
+
     const listQuestion = data[session.toString()]["listsoal"].map((nomorsoal, index) => {
         const choices = [];
         nomorsoal["pilihan"].map((option) => {
             choices.push(option["teks"]);
         });
-        return <Questions key={index} question={nomorsoal["soal"]} option={choices}/>;
+        return <Questions key={index} question={nomorsoal["soal"]} option={choices} onAnswerChange={(newAnswer) => handleAnswerChange(index, newAnswer)} />;
     });
-    
-    
-    // const listQuestion = data[session.toString()]["listsoal"].map((nomorsoal) => {
-    //     const choices = [];
-    //     nomorsoal.map((option) => {
-    //         choices.push(option["teks"]);
-    //     })
-    //     return <Questions question={nomorsoal["soal"]} option={choices}/>;
-    // });
 
-    let contrast = 'read-container';
-    if (session > 4) {
-        contrast = contrast + ' dark';
+    const calcScore = () => {
+        let score = 0;
+
+        data[session.toString()]['listsoal'].forEach((nomorsoal, index) => {
+            const selectedAnswerIndex = answers[index];
+            if (nomorsoal && nomorsoal["pilihan"] && nomorsoal["pilihan"][selectedAnswerIndex] && typeof nomorsoal["pilihan"][selectedAnswerIndex]["isCorrect"] !== "undefined" && nomorsoal["pilihan"][selectedAnswerIndex]["isCorrect"]) {
+              score += 1;
+            }
+        });
+        
+        console.log("Score: ", score);
     }
 
     return(            
@@ -58,8 +69,8 @@ const Quiz = (session) => {
                 </form>
             </div>
 
-            {(session < 8) && <Link to={'/case/'+ (session+1).toString()}><button className='read-btn'>Simpan Jawaban</button></Link>}
-            {(session >= 8) && <Link to={'/final'}><button className='read-btn'>Simpan Jawaban</button></Link>}
+            {(session < 8) && <Link to={'/case/'+ (session+1).toString()}><button className='read-btn' onClick={calcScore}>Simpan Jawaban</button></Link>}
+            {(session >= 8) && <Link to={'/final'}><button className='read-btn' onClick={calcScore}>Simpan Jawaban</button></Link>}
         </div>
     )
 
