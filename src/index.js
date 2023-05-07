@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './containers/pages/App';
 import reportWebVitals from './reportWebVitals';
-import { firebaseApp, db } from './config/firebase';
 import './assets/fonts/NotoSans-Regular.ttf'
-
-// console.log('config fb ==', firebaseApp);
-// console.log('config db ==', db);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

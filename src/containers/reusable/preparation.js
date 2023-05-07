@@ -2,7 +2,6 @@ import React from 'react';
 import './preparation.scss';
 import './style-cases.scss';
 import { Link, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 function Preparation() {
     const {session} = useParams();
@@ -12,7 +11,6 @@ function Preparation() {
         contrast = contrast + ' dark';
     }
 
-    // addData('ini');
     return(
         <div className={contrast}>
             <div className='navbar'></div>
@@ -24,9 +22,5 @@ function Preparation() {
         </div>
         )
 }
-
-Preparation.propTypes = {
-    session: PropTypes.number.isRequired
-};
 
 export default Preparation;

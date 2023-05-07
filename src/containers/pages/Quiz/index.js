@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../../reusable/reading.scss';
-import PropTypes from 'prop-types';
 import Questions from '../../reusable/question';
 import jsonData from '../../../assets/soal.json';
-import { db } from '../../../config/firebase/index';
-import { collection, addDoc } from 'firebase/firestore';
 
-function Quiz({addData}) {
+function Quiz() {
     const {session} = useParams();
 
     let contrast = 'read-container';
@@ -19,7 +16,6 @@ function Quiz({addData}) {
     const [answers, setAnswers] = useState({});
     const [comprehension, setComprehension] = useState(0);
     const [likeability, setLikeability] = useState(0);
-    const usersCollectionRef = collection(db, "users");
 
     useEffect(() => {
         setData(jsonData);
@@ -75,8 +71,6 @@ function Quiz({addData}) {
         }
 
         event.preventDefault();
-        addData(comprehension);
-        addData(likeability);
         const temp = localStorage.getItem(session);
         localStorage.setItem(session, [temp, comprehension, likeability]);
         
@@ -125,11 +119,6 @@ function Quiz({addData}) {
         </div>
     )
 
-};
-
-Quiz.propTypes = {
-    session: PropTypes.number.isRequired,
-    addData: PropTypes.func.isRequired
 };
 
 export default Quiz;

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Register.scss'
 
-function Register({addData}) {
+function Register() {
         const [newName, setNewName] = useState("");
 
         const handleSubmit = async (event) => {
@@ -10,8 +9,6 @@ function Register({addData}) {
             if (newName) {
                 localStorage.clear();
                 localStorage.setItem('nama', newName);
-                addData(newName);
-                // Redirect to next page after successful form submission
                 window.location.href = '/case/1';
             }
         };
@@ -38,9 +35,5 @@ function Register({addData}) {
             </div>
         )
 }
-
-Register.propTypes = {
-    addData: PropTypes.func.isRequired
-};
 
 export default Register;
