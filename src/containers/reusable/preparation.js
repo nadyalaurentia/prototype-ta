@@ -1,15 +1,18 @@
 import React from 'react';
 import './preparation.scss';
 import './style-cases.scss';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Preparation = (session) => {
+function Preparation() {
+    const {session} = useParams();
+
     let contrast = 'prep-container';
     if (session > 4) {
         contrast = contrast + ' dark';
     }
 
+    // addData('ini');
     return(
         <div className={contrast}>
             <div className='navbar'></div>

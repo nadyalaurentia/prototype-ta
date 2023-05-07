@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './reading.scss';
 import './style-cases.scss';
 import PropTypes from 'prop-types';
 import jsonData from '../../assets/soal.json';
 
-const Reading = (session) => {
+function Reading({addData}) {
+    const {session} = useParams();
     let style = 'read-text style-' + (session % 4).toString();
     
     let contrast = 'read-container';
@@ -35,8 +36,6 @@ const Reading = (session) => {
         return <div>Loading...</div>;
     }
 
-    
-
     const calculateReadingSpeed = (startTime) => {
       const endTime = Date.now();
       const readingTime = (endTime - startTime) / 1000 / 60; //convert to minute
@@ -44,6 +43,8 @@ const Reading = (session) => {
       const wordCount = content.trim().split(/\s+/).length;
       const speed = Math.round(wordCount / readingTime); // speed in words per minute
       console.log(`Reading speed: ${speed} wpm`);
+      addData(speed);
+      localStorage.setItem(session, [speed]);
     };
 
     return(
@@ -59,7 +60,8 @@ const Reading = (session) => {
 }
 
 Reading.propTypes = {
-    session: PropTypes.number.isRequired
+    session: PropTypes.number.isRequired,
+    addData: PropTypes.func.isRequired
 };
 
 export default Reading;
