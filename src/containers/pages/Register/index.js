@@ -24,7 +24,7 @@ function Register() {
                         <li>Aktivitas membaca materi</li>
                         <li>Aktivitas pengujian pemahaman dan penilaian kenyamanan</li>
                     </ul>
-                    <p>Eksperimen akan berlangsung selama kurang lebih 90 menit.</p>
+                    <p>Eksperimen akan berlangsung selama kurang lebih 60 menit.</p>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <p className='input-title'>Nama <div className='mandatory'>*</div></p>

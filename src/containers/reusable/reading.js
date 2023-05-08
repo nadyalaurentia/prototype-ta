@@ -26,6 +26,7 @@ function Reading() {
       if (data !== null) {
         setTitle(data[session.toString()]["judul"]);
         setContent(data[session.toString()]["bacaan"]);
+        // const content = data[session.toString()]["bacaan"];
         setStartTime(Date.now());
       }
     }, [data, session]);
@@ -50,7 +51,12 @@ function Reading() {
             <div className='navbar'></div>
             <div className='content-container'>
                 <p className='read-title'>{title}</p>
-                <p className={style}>{content}</p>
+                {/* <p className={style}>{content}</p> */}
+                <div className={style}>
+                  {content.split('\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
             </div>
             <Link to={'/case/'+ session.toString() +'/questions'} onClick={() => calculateReadingSpeed(startTime)}><button className='read-btn'>Selesai Membaca</button></Link>
         </div>
