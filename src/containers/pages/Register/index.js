@@ -21,10 +21,11 @@ function Register() {
                     <div className='reg-text'>
                     <p>Terima kasih sudah meluangkan waktu untuk berpartisipasi dalam kegiatan eksperimen ini. Kegiatan ini terdiri dari 8 sesi yang masing-masing terdiri dari:</p>
                     <ul className='reg-text'>
-                        <li>Aktivitas membaca materi</li>
-                        <li>Aktivitas pengujian pemahaman dan penilaian kenyamanan</li>
+                        <li>Aktivitas membaca materi dalam bahasa Inggris</li>
+                        <li>Aktivitas pengujian pemahaman berupa 6 soal pilihan ganda</li>
+                        <li>Aktivitas pemberian nilai kenyamanan</li>
                     </ul>
-                    <p>Eksperimen akan berlangsung selama kurang lebih 60 menit.</p>
+                    <p>Eksperimen akan berlangsung selama kurang lebih 60 menit. Anda dapat beristirahat selama pergantian sesi, namun Anda diharapkan untuk fokus ketika sesi membaca karena kecepatan membaca akan diukur. Perlu diingat juga bahwa Anda tidak bisa kembali ke halaman membaca ketika sudah berada di halaman menjawab pertanyaan. </p>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <p className='input-title'>Nama <div className='mandatory'>*</div></p>
