@@ -7,7 +7,6 @@ function Register() {
         const handleSubmit = async (event) => {
             event.preventDefault();
             if (newName) {
-                localStorage.clear();
                 localStorage.setItem('nama', newName);
                 window.location.href = '/case/1';
             }

@@ -60,7 +60,7 @@ function Quiz() {
     }
 
     const handleSubmit = (event) => {
-        if (Object.keys(answers).length != 6) {
+        if (Object.keys(answers).length !== 6) {
             alert("Silakan menjawab seluruh pertanyaan");
             return;
         }
@@ -94,6 +94,7 @@ function Quiz() {
             link.click();
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
+            localStorage.clear();
             window.location.assign('/final');
         }
     };
