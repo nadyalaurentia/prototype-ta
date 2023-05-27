@@ -7,7 +7,7 @@ function Preparation() {
     const {session} = useParams();
 
     let contrast = 'prep-container';
-    if (session > 4) {
+    if (session < 5) {
         contrast = contrast + ' dark';
     }
 
