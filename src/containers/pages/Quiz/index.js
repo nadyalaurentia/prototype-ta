@@ -94,7 +94,6 @@ function Quiz() {
             link.click();
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
-            localStorage.clear();
             window.location.assign('/final');
         }
     };
