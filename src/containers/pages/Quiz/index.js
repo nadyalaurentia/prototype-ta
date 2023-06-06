@@ -8,7 +8,7 @@ function Quiz() {
     const {session} = useParams();
 
     let contrast = 'read-container';
-    if (session < 5) {
+    if (session > 4) {
         contrast = contrast + ' dark';
     }
 
