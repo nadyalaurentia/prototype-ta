@@ -9,7 +9,7 @@ function Reading() {
     let style = 'read-text style-' + (session % 4).toString();
     
     let contrast = 'read-container';
-    if (session > 4) {
+    if (session < 5) {
         contrast = contrast + ' dark';
     }
     
