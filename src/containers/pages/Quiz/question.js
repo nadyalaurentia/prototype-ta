@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './reading.scss';
+import '../Reading/reading.scss';
 import PropTypes from 'prop-types';
 
 const Questions = ({question, option, onAnswerChange}) => {

@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Register from '../Register';
-import Preparation from '../../reusable/preparation';
-import Reading from '../../reusable/reading';
+import Preparation from '../Preparation/preparation';
+import Reading from '../Reading/reading';
 import Quiz from '../Quiz';
 import Final from '../Final';
 

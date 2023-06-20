@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './reading.scss';
-import './style-cases.scss';
-import jsonData from '../../assets/soal.json';
+import '../../styling/style-cases.scss';
+import jsonData from '../../../assets/soal.json';
 
 function Reading() {
     const {session} = useParams();

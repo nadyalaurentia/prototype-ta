@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../../reusable/reading.scss';
-import Questions from '../../reusable/question';
+import '../Reading/reading.scss';
+import Questions from '../Quiz/question.js';
 import jsonData from '../../../assets/soal.json';
 
 function Quiz() {

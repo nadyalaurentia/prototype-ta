@@ -1,6 +1,6 @@
 import React from 'react';
 import './preparation.scss';
-import '../../styling/style-cases.scsss';
+import '../../styling/style-cases.scss';
 import { Link, useParams } from 'react-router-dom';
 
 function Preparation() {
